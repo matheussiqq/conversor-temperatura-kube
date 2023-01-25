@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: conversor
+  template:
+    metadata:
+      labels:
+        app: conversor
+    spec:
+      containers:
+      - name: conversor
+        image: mate19/conversao-temperatura:v1
+        ports:
+        - containerPort: 8080
